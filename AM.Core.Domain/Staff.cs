@@ -18,6 +18,11 @@ namespace AM.Core.Domain
                 + "Function: "+ Function
                 + "Salary: "+ Salary;
         }
+        public override string GetPassengerType()
+        {
+            return base.GetPassengerType()+" I am a Staff Member";
+
+        }
 
     }
 }

@@ -9,6 +9,33 @@ namespace AM.Core.Domain
     public class Passenger
     {
         public DateTime BirthDate { get; set; }
+        private int age;
+        public int Age {
+
+            get
+            {
+                age = DateTime.Now.Year - BirthDate.Year;
+                //if (DateTime.Now.Month < BirthDate.Month )
+                //{
+                    //age--;
+                //}
+                //if(DateTime.Now.Month == BirthDate.Month && DateTime.Now.Day < BirthDate.Day)
+                //{
+                    //age--;
+               // }
+                
+                //proposition 2
+                if(DateTime.Now< BirthDate.AddYears(age))
+                {
+                    age--;
+                }
+
+
+                return age;
+            }
+        
+        }
+
         public string PassportNumber { get; set; }
         public string EmailAddress { get; set; }
         public string FirstName { get; set; }

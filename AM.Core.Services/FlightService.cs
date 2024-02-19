@@ -122,5 +122,7 @@ namespace AM.Core.Services
                 Console.WriteLine(item);
             }
         }
+
+       
     }
 }

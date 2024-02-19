@@ -16,7 +16,7 @@ namespace AM.Core.Services
         float GetDurationAverage(string destination);
         IList<Flight> SortFlights();
         IList<Passenger> GetThreeOlderTravellers(Flight flight);
-        IList<Flight> ShowGroupedFlights();
+        void ShowGroupedFlights();
 
     }
 }

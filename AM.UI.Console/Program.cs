@@ -17,6 +17,7 @@ Plane plane2 = new Plane(PlaneType.Airbus,100,DateTime.Now);
 Plane plane3 = new Plane (){ Capacity =50,MyPlaneType=PlaneType.Boing };
 
 
+
 // Testing polymorphism through inheritance
 Passenger passenger = new Passenger();   // Creating an instance of the Passenger class
 Passenger passenger1 = new Staff();           // Creating an instance of the Staff class

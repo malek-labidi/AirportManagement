@@ -10,6 +10,7 @@ namespace AM.Core.Domain
     {
         public DateTime BirthDate { get; set; }
         private int age;
+        public int passengerId { get; set; }
         public int Age {
 
             get

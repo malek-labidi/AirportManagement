@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,11 @@ namespace AM.Core.Domain
 {
     public class Passenger
     {
+        [DataType(DataType.DateTime,ErrorMessage ="date non valide"),Display(Name = "date of birth")]
         public DateTime BirthDate { get; set; }
+
         private int age;
-        public int passengerId { get; set; }
+       // public int passengerId { get; set; }
         public int Age {
 
             get
@@ -36,11 +39,17 @@ namespace AM.Core.Domain
             }
         
         }
-
+        [Key,MaxLength(7,ErrorMessage ="Taille maximale 7"),//controle dans bd
+            MinLength(7, ErrorMessage = "Taille mainimale 7"),//controle dans bd
+            StringLength(7,MinimumLength =7, ErrorMessage ="taille 7")//controle au niveau de front
+            ]
         public string PassportNumber { get; set; }
+        [EmailAddress(ErrorMessage ="email invalide")]
         public string EmailAddress { get; set; }
+        [MaxLength(25,ErrorMessage ="taille maximale 25"),MinLength(3,ErrorMessage ="taille minimale 3")]
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        [Phone(ErrorMessage ="num tel invalide")]
         public string TelNumber { get; set; }
         public IList<Flight> Flights { get; set; }
 

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AM.Core.Domain
 {
+    //[Table("Flight")]
     public class Flight
     {
         public string Destination { get; set; }
@@ -14,8 +17,23 @@ namespace AM.Core.Domain
         public int FlightId { get; set; }
         public DateTime EffectiveArrival { get; set; }
         public int EstimatedDuration { get; set; }
+        public string Comment { get; set; }
+
         public IList<Passenger> Passengers { get; set; }
+
+      
+        public int PlaneId { get; set; }
+
+        [ForeignKey(nameof(PlaneId))]
         public Plane MyPlane { get; set; }
+
+        /** Or 
+         
+        [ForeignKey(nameof(MyPlane))]
+        public int PlaneId { get; set; }
+
+        public Plane MyPlane { get; set; }
+         */
 
         public override string ToString()
         {

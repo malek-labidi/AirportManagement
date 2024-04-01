@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Numerics;
@@ -22,7 +23,7 @@ namespace AM.Core.Domain
         public IList<Passenger> Passengers { get; set; }
 
       
-        public int PlaneId { get; set; }
+        public int? PlaneId { get; set; }
 
         [ForeignKey(nameof(PlaneId))]
         public Plane MyPlane { get; set; }

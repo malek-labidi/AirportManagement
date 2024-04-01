@@ -27,6 +27,7 @@ namespace AM.Data
         {
             modelBuilder.ApplyConfiguration(new PlaneConfig());
             modelBuilder.ApplyConfiguration(new FlightConfig());
+            modelBuilder.ApplyConfiguration(new PassengerConfig());
 
             //modify all the properties "string" from nvarchar(max) to nvarchar(30)
             //fluent Api

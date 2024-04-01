@@ -46,9 +46,12 @@ namespace AM.Core.Domain
         public string PassportNumber { get; set; }
         [EmailAddress(ErrorMessage ="email invalide")]
         public string EmailAddress { get; set; }
-        [MaxLength(25,ErrorMessage ="taille maximale 25"),MinLength(3,ErrorMessage ="taille minimale 3")]
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        [MaxLength(25, ErrorMessage = "taille maximale 25"), MinLength(3, ErrorMessage = "taille minimale 3")]
+        // public string FirstName { get; set; }
+        //public string LastName { get; set; }
+
+        public FullName MyFullName { get; set; }
+
         [Phone(ErrorMessage ="num tel invalide")]
         public string TelNumber { get; set; }
         public IList<Flight> Flights { get; set; }
@@ -58,14 +61,14 @@ namespace AM.Core.Domain
             return "BirthDate: "+ BirthDate
                 + "PassportNumber: "+ PassportNumber
                 + "EmailAddress: "+ EmailAddress
-                + "FirstName: "+ FirstName
-                + "LastName: "+ LastName
+                + "FirstName: "+ MyFullName.FirstName
+                + "LastName: "+ MyFullName.LastName
                 + "TelNumber: "+ TelNumber;
         }
         public bool CheckProfile(string firstName, string lastName)
         {
             
-            return this.FirstName == firstName && this.LastName == lastName;
+            return this.MyFullName.FirstName == firstName && this.MyFullName.LastName == lastName;
 
         }
 
@@ -88,11 +91,11 @@ namespace AM.Core.Domain
         {
             if(emailAddress == null)
             {
-                return this.FirstName == firstName && this.LastName == lastName;
+                return this.MyFullName.FirstName == firstName && this.MyFullName.LastName == lastName;
             }
             else
             {
-                return this.FirstName == firstName && this.LastName == lastName && this.EmailAddress == emailAddress;
+                return this.MyFullName.FirstName == firstName && this.MyFullName.LastName == lastName && this.EmailAddress == emailAddress;
             }
           
         }

@@ -28,6 +28,12 @@ namespace AM.Data
             modelBuilder.ApplyConfiguration(new PlaneConfig());
             modelBuilder.ApplyConfiguration(new FlightConfig());
             modelBuilder.ApplyConfiguration(new PassengerConfig());
+            /*
+             * TPT methode with fluent API
+             * */
+            //modelBuilder.Entity<Staff>().ToTable("Staffs");
+            //modelBuilder.Entity<Traveller>().ToTable("Travellers");
+
 
             //modify all the properties "string" from nvarchar(max) to nvarchar(30)
             //fluent Api

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AM.Core.Domain
 {
+    [Table("Travellers")]
+
     public class Traveller :Passenger
     {
         public string HealthInformation { get; set; }

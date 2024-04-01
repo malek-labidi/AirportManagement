@@ -21,6 +21,10 @@ namespace AM.Data.Configurations
                     
                 }
                 );
+            builder.HasDiscriminator<int>("IsTraveller")
+                .HasValue<Traveller>(1)
+                .HasValue<Staff>(2)
+                .HasValue<Passenger>(0);
         }
     }
 }

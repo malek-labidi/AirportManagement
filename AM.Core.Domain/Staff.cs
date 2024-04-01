@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AM.Core.Domain
 {
-    [Table("Staffs")]
+   // [Table("Staffs")]
     public class Staff :Passenger
     {
         public DateTime EmploymentDate { get; set; }

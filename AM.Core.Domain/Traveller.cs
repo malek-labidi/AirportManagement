@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AM.Core.Domain
 {
-    [Table("Travellers")]
+   // [Table("Travellers")]
 
     public class Traveller :Passenger
     {

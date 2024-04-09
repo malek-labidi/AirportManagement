@@ -28,6 +28,7 @@ namespace AM.Data
             modelBuilder.ApplyConfiguration(new PlaneConfig());
             modelBuilder.ApplyConfiguration(new FlightConfig());
             modelBuilder.ApplyConfiguration(new PassengerConfig());
+            modelBuilder.ApplyConfiguration(new ReservationConfig());
             /*
              * TPT methode with fluent API
              * */

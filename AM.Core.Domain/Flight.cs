@@ -20,8 +20,8 @@ namespace AM.Core.Domain
         public int EstimatedDuration { get; set; }
         public string Comment { get; set; }
 
-        public IList<Passenger> Passengers { get; set; }
-
+        //public IList<Passenger> Passengers { get; set; }
+        public IList<Reservation> Reservations { get; set; }
       
         public int? PlaneId { get; set; }
 

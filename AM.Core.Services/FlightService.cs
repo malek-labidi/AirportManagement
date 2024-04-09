@@ -110,7 +110,7 @@ namespace AM.Core.Services
 
         public IList<Passenger> GetThreeOlderTravellers(Flight flight)
         {
-           return flight.Passengers.OrderByDescending(p => p.Age)
+           return flight.Reservations.Select(r => r.MyPassenger).OrderByDescending(p => p.Age)
                 .TakeLast(3)
                 .ToList();
         }

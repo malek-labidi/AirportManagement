@@ -54,8 +54,8 @@ namespace AM.Core.Domain
 
         [Phone(ErrorMessage ="num tel invalide")]
         public string TelNumber { get; set; }
-        public IList<Flight> Flights { get; set; }
-
+        //public IList<Flight> Flights { get; set; }
+        public IList<Reservation> Reservations { get; set; }
         public override string ToString()
         {
             return "BirthDate: "+ BirthDate

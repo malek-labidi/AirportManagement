@@ -41,7 +41,7 @@ namespace AM.Core.Domain
         }
         [Key,MaxLength(7,ErrorMessage ="Taille maximale 7"),//controle dans bd
             MinLength(7, ErrorMessage = "Taille mainimale 7"),//controle dans bd
-            StringLength(7,MinimumLength =7, ErrorMessage ="taille 7")//controle au niveau de front
+            //StringLength(7,MinimumLength =7, ErrorMessage ="taille 7")//controle au niveau de front
             ]
         public string PassportNumber { get; set; }
         [EmailAddress(ErrorMessage ="email invalide")]
@@ -55,7 +55,7 @@ namespace AM.Core.Domain
         [Phone(ErrorMessage ="num tel invalide")]
         public string TelNumber { get; set; }
         //public IList<Flight> Flights { get; set; }
-        public IList<Reservation> Reservations { get; set; }
+        public virtual IList<Reservation> Reservations { get; set; }
         public override string ToString()
         {
             return "BirthDate: "+ BirthDate

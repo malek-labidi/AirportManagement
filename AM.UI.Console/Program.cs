@@ -42,12 +42,72 @@ Flight flight = new Flight()
     FlightDate= DateTime.Now,
     MyPlane = planeAirbus,
 };
+
+FullName fullName = new FullName()
+{
+    FirstName = "Malek",
+    LastName = "Labidi"
+};
+
+Passenger passenger = new Passenger()
+{
+    BirthDate= DateTime.Now,
+    EmailAddress = "labidi.malek@esprit.tn",
+    MyFullName = fullName,
+    PassportNumber = "122555",
+    TelNumber = "52329813"
+
+};
+//TP 5 .9
+Reservation reservation = new Reservation()
+{
+    Price= 19,
+    Seat= "15a",
+    VIP= true,
+    FlightId =1,
+    MyPassenger= passenger,
+};
+
+//TP 5.10
+Plane planeAirbus330 = new Plane() { Capacity = 330, MyPlaneType = PlaneType.Boing };
+
+
+Flight ParisTunis = new Flight()
+{
+    Comment = "Paris Tunis",
+    Departure = "paris",
+    Destination = "tunis",
+    EffectiveArrival = DateTime.Now,
+    EstimatedDuration = 60,
+    FlightDate = DateTime.Now,
+    MyPlane = planeAirbus,
+};
+
+
 AMContext aMContext = new AMContext();
 
-aMContext.Add(planeAirbus);
-aMContext.Add(flight);
+//aMContext.Add(planeAirbus);
+//aMContext.Add(flight);
+//aMContext.Add(passenger);
+//aMContext.Add(reservation);
 
-aMContext.SaveChanges();
+//aMContext.Add(planeAirbus330);
+//aMContext.Add(ParisTunis);
+
+//aMContext.SaveChanges();
+
+//Console.WriteLine("paris tunis Flight :");
+//Console.WriteLine(planeAirbus330);
+//Console.WriteLine("paris tunis Plane :");
+//Console.WriteLine(ParisTunis.MyPlane);
+// TP 5 .11
+Flight flight1 = aMContext.Find<Flight>(2);
+Console.WriteLine("paris tunis Flight :");
+Console.WriteLine(flight1);
+Console.WriteLine("paris tunis plane :");
+Console.WriteLine(flight1.MyPlane);
+//Console.WriteLine(aMContext.Find<Plane>(flight1.PlaneId));
+
 
 
 

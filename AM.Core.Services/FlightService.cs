@@ -1,4 +1,5 @@
 ﻿using AM.Core.Domain;
+using AM.Data;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
@@ -8,7 +9,11 @@ namespace AM.Core.Services
     public class FlightService : IFlightService
     {
         public IList<Flight> Flights { get; set; }
-
+        readonly IRepository<Flight> repository;
+        public FlightService(IRepository<Flight> repository)
+        {
+            this.repository = repository;
+        }
        
          public IList<DateTime> GetFlightDates(string destination)
         {
@@ -123,6 +128,21 @@ namespace AM.Core.Services
             }
         }
 
-       
+        public void Add(Flight flight)
+        {
+            repository.Add(flight);
+            repository.Save();
+        }
+
+        public void Delete(Flight flight)
+        {
+            repository.Delete(flight);
+            repository.Save();
+        }
+
+        public IList<Flight> GetAll()
+        {
+            return repository.GetAll();
+        }
     }
 }

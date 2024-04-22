@@ -17,6 +17,12 @@ namespace AM.Core.Services
         IList<Flight> SortFlights();
         IList<Passenger> GetThreeOlderTravellers(Flight flight);
         void ShowGroupedFlights();
+        void Add(Flight flight);
+        void Delete(Flight flight);
+
+        IList<Flight> GetAll();
+
+
 
     }
 }

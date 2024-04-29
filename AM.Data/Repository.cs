@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AM.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,11 +34,11 @@ namespace AM.Data
             return aMContext.Set<T>().ToList(); 
         }
 
-        public void Save()
+      /*  public void Save()
         {
            aMContext.SaveChanges();
         }
-
+      */
         public void Update(T entity)
         {
             aMContext.Update(entity);

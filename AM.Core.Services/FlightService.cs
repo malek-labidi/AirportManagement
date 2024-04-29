@@ -1,21 +1,30 @@
-﻿using AM.Core.Domain;
-using AM.Data;
+﻿using AM.Core;
+using AM.Core.Domain;
+using AM.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 
 namespace AM.Core.Services
 {
-    public class FlightService : IFlightService
+    public class FlightService :Service<Flight>, IFlightService
     {
-        public IList<Flight> Flights { get; set; }
-        readonly IRepository<Flight> repository;
-        public FlightService(IRepository<Flight> repository)
+        public FlightService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            this.repository = repository;
+
         }
-       
-         public IList<DateTime> GetFlightDates(string destination)
+
+        public IList<Flight> Flights { get; set; }
+
+        //IRepository<Flight> repository;
+        //readonly IUnitOfWork unitOfWork;
+        /*  public FlightService(IUnitOfWork unitOfWork)
+          {   this.unitOfWork = unitOfWork;
+              repository = unitOfWork.GetRepository<Flight>();
+
+          }*/
+
+        public IList<DateTime> GetFlightDates(string destination)
         {
             //List<DateTime> flightDates = new List<DateTime>();
             //foreach (Flight flight in Flights)
@@ -128,7 +137,7 @@ namespace AM.Core.Services
             }
         }
 
-        public void Add(Flight flight)
+      /*  public void Add(Flight flight)
         {
             repository.Add(flight);
             repository.Save();
@@ -143,6 +152,6 @@ namespace AM.Core.Services
         public IList<Flight> GetAll()
         {
             return repository.GetAll();
-        }
+        }*/
     }
 }

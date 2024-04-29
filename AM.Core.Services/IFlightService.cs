@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AM.Core.Services
 {
-    public interface IFlightService
+    public interface IFlightService :  IService<Flight>
     {
          IList<DateTime> GetFlightDates(String destination);
          IList<Flight> GetFlights(string filterType, string filterValue);
@@ -17,10 +17,10 @@ namespace AM.Core.Services
         IList<Flight> SortFlights();
         IList<Passenger> GetThreeOlderTravellers(Flight flight);
         void ShowGroupedFlights();
-        void Add(Flight flight);
+       /* void Add(Flight flight);
         void Delete(Flight flight);
 
-        IList<Flight> GetAll();
+        IList<Flight> GetAll();*/
 
 
 

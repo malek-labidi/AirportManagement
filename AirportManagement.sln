@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AM.Core.Domain", "AM.Core.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AM.Core.Services", "AM.Core.Services\AM.Core.Services.csproj", "{5659D15C-9ED7-4C38-9FE0-4CE1587D5CAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AM.Data", "AM.Data\AM.Data.csproj", "{FC996AA6-5CBC-4BA6-92FF-DE7E6A5F213C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AM.Data", "AM.Data\AM.Data.csproj", "{FC996AA6-5CBC-4BA6-92FF-DE7E6A5F213C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AM.Core.Interfaces", "AM.Core.Interfaces\AM.Core.Interfaces.csproj", "{B661E9D9-66CB-4C9B-B449-6440242F7762}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{FC996AA6-5CBC-4BA6-92FF-DE7E6A5F213C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC996AA6-5CBC-4BA6-92FF-DE7E6A5F213C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC996AA6-5CBC-4BA6-92FF-DE7E6A5F213C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B661E9D9-66CB-4C9B-B449-6440242F7762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B661E9D9-66CB-4C9B-B449-6440242F7762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B661E9D9-66CB-4C9B-B449-6440242F7762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B661E9D9-66CB-4C9B-B449-6440242F7762}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

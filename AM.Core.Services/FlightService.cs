@@ -7,14 +7,18 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace AM.Core.Services
 {
-    public class FlightService :Service<Flight>, IFlightService
+    public class FlightService : Service<Flight>, IFlightService
     {
+        private readonly IRepository<Flight> repository;
+        public IList<Flight> Flights { get; set; }
         public FlightService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-
+            repository = unitOfWork.GetRepository<Flight>();
+            Flights = repository.GetAll();
         }
 
-        public IList<Flight> Flights { get; set; }
+
+      
 
         //IRepository<Flight> repository;
         //readonly IUnitOfWork unitOfWork;
@@ -29,25 +33,26 @@ namespace AM.Core.Services
             //List<DateTime> flightDates = new List<DateTime>();
             //foreach (Flight flight in Flights)
             //{
-                //if (flight.Destination == destination)
-                //{
-                    //flightDates.Add(flight.FlightDate);
-                //}
-           // }
-           // return flightDates;
+            //if (flight.Destination == destination)
+            //{
+            //flightDates.Add(flight.FlightDate);
+            //}
+            // }
+            // return flightDates;
 
             //method LINQ intégré
-           // return (from flight in Flights
-                  // where flight.Destination == destination
-                   //select flight.FlightDate).ToList();
+            // return (from flight in Flights
+            // where flight.Destination == destination
+            //select flight.FlightDate).ToList();
 
             //method LINQ fct avancé
-            return Flights.Where(f=> f.Destination == destination)
+
+            return Flights.Where(f => f.Destination == destination)
                 .Select(f => f.FlightDate)
                 .ToList();
         }
 
-        
+
 
         public IList<Flight> GetFlights(string filterType, string filterValue)
         {
@@ -87,11 +92,11 @@ namespace AM.Core.Services
         }
 
 
-       public void ShowFlightDetails(Plane plane)
+        public void ShowFlightDetails(Plane plane)
         {
-           foreach (Flight flight in Flights.Where(f=> f.MyPlane.PlaneId == plane.PlaneId).ToList())
+            foreach (Flight flight in Flights.Where(f => f.MyPlane.PlaneId == plane.PlaneId).ToList())
             {
-                Console.WriteLine("Destination: "+flight.Destination+" Flight Date: "+flight.FlightDate);
+                Console.WriteLine("Destination: " + flight.Destination + " Flight Date: " + flight.FlightDate);
 
             };
 
@@ -107,7 +112,7 @@ namespace AM.Core.Services
 
         public int GetWeeklyFlightNumber(DateTime startDate)
         {
-           return Flights.Where(f => f.FlightDate >= startDate && f.FlightDate > startDate.AddDays(7)).Count();
+            return Flights.Where(f => f.FlightDate >= startDate && f.FlightDate > startDate.AddDays(7)).Count();
         }
 
         public float GetDurationAverage(string destination)
@@ -115,43 +120,44 @@ namespace AM.Core.Services
             return (float)Flights.Where(f => f.Destination == destination).Average(f => f.EstimatedDuration);
         }
 
+
         public IList<Flight> SortFlights()
         {
             return Flights.OrderByDescending(f => f.EstimatedDuration).ToList();
         }
 
-      
+
 
         public IList<Passenger> GetThreeOlderTravellers(Flight flight)
         {
-           return flight.Reservations.Select(r => r.MyPassenger).OrderByDescending(p => p.Age)
-                .TakeLast(3)
-                .ToList();
+            return flight.Reservations.Select(r => r.MyPassenger).OrderByDescending(p => p.Age)
+                 .TakeLast(3)
+                 .ToList();
         }
 
         public void ShowGroupedFlights()
         {
-            foreach(Flight item in Flights.GroupBy(f => f.Destination).ToList())
+            foreach (Flight item in Flights.GroupBy(f => f.Destination).ToList())
             {
                 Console.WriteLine(item);
             }
         }
 
-      /*  public void Add(Flight flight)
-        {
-            repository.Add(flight);
-            repository.Save();
-        }
+        /*  public void Add(Flight flight)
+          {
+              repository.Add(flight);
+              repository.Save();
+          }
 
-        public void Delete(Flight flight)
-        {
-            repository.Delete(flight);
-            repository.Save();
-        }
+          public void Delete(Flight flight)
+          {
+              repository.Delete(flight);
+              repository.Save();
+          }
 
-        public IList<Flight> GetAll()
-        {
-            return repository.GetAll();
-        }*/
+          public IList<Flight> GetAll()
+          {
+              return repository.GetAll();
+          }*/
     }
 }
